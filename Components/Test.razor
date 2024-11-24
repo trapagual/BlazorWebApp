@@ -1,0 +1,23 @@
+﻿@page "/test"
+
+@inject IConfiguration Configuracion
+
+<h3>Test</h3>
+
+<h4>Valores de configuración:</h4>
+<p>Url de la API: @UrlApi</p>
+<p>¿Característica Activada?: @ActivarCaracteristica</p>
+
+
+
+@code {
+
+        private string? UrlApi;
+        private bool ActivarCaracteristica;
+    protected override void OnInitialized() {
+        // obtener características del fichero de configuración
+        UrlApi = Configuracion["ConfiguracionesAplicaciones:UrlApi"];
+        ActivarCaracteristica = bool.Parse(Configuracion["ConfiguracionesAplicaciones:ActivarCaracteristica"] ?? "false");
+    }
+
+}

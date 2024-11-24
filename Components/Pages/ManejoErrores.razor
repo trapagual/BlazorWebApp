@@ -1,0 +1,28 @@
+﻿@page "/error-demo"
+
+<h3>Gestión de errores en Blazor</h3>
+
+@if(_hasError) {
+    <p style="color: red">Ocurrió un error @_mensajeError</p>
+} else {
+    <button @onclick="ErrorProvocado">Generar Error</button>
+}
+
+
+
+
+
+@code {
+    private bool _hasError=false;
+    private string _mensajeError = "";
+
+    private void ErrorProvocado() {
+        try {
+            // provocamos un error
+            throw new InvalidOperationException("¡Esto es un error provocado!");
+        } catch (Exception ex) {
+            _hasError = true;
+            _mensajeError = ex.Message;
+        }
+    }
+}

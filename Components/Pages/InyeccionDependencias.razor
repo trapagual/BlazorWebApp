@@ -1,0 +1,14 @@
+﻿@page "/inyeccion"
+@using BlazorWebApp.Repositorios.Interfaces
+@inject IMiServicio miServicio
+
+<!-- Esta página no funciona. Sólo es un ejemplo de cómo se inyectaría
+     un servicio en un componente Razor y cómo se usaría (en el párrafo de abajo) -->
+<h3>Inyeccion de Dependencias en Blazor</h3>
+
+<p>@miServicio.GetMensaje()</p>
+
+@code {
+    // Aqui se pueden usar los métodos o propiedades del servicio inyectado
+
+}
